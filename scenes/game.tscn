@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://e0ckgly7hgs3"]
+
+[ext_resource type="PackedScene" uid="uid://dgs6iuadvsohg" path="res://scenes/world.tscn" id="1_7dm3d"]
+[ext_resource type="Script" path="res://scripts/dialogue_text.gd" id="2_ptmvd"]
+
+[node name="Game" type="Node"]
+
+[node name="World" parent="." instance=ExtResource("1_7dm3d")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueText" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 10
+bbcode_enabled = true
+script = ExtResource("2_ptmvd")
